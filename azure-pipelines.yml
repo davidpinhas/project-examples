@@ -59,3 +59,13 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
 
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          
+          echo 'npm packages location'
+          sudo find / -name "react"
+          echo 'nuget packages location'
+          ls -la /home/vsts/.nuget/packages/

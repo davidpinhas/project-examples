@@ -65,7 +65,30 @@ jobs:
         script: |
           # Write your commands here
           
-          echo 'npm packages location'
-          sudo find / -name "react"
+          # echo 'npm packages location'
+          # sudo find / -name "react"
           echo 'nuget packages location'
-          ls -la /home/vsts/.nuget/packages/
+          
+          echo 'locating bootstrap'
+          sudo find / -name "bootstrap"
+          
+          echo 'locating jQuery'
+          sudo find / -name "jQuery"
+          
+          echo 'locating Microsoft.Bcl'
+          sudo find / -name "Microsoft.Bcl"
+          
+          echo 'locating Microsoft.Net.Http'
+          sudo find / -name "Microsoft.Net.Http"
+          
+          echo 'locating Microsoft.Bcl.Build'
+          sudo find / -name "Microsoft.Bcl.Build"
+          
+          echo 'locating Newtonsoft.Json'
+          sudo find / -name "Newtonsoft.Json"
+          
+          echo 'locating NUnit'
+          sudo find / -name "NUnit"
+
+          echo 'locating popper.js'
+          sudo find / -name "popper.js"

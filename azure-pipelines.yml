@@ -24,7 +24,16 @@ jobs:
       inputs:
         versionSpec: '14.15.1' # The version we're installing
       enabled: ${{ parameters.enabled }}
-    
+
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          
+          # echo 'npm packages location'
+          # sudo find / -name "react"
+          npm install react react-dom
     - task: ArtifactoryNpm@2
       enabled: ${{ parameters.enabled }}
       displayName: npm install from artifactory

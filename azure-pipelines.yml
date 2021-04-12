@@ -38,27 +38,27 @@ jobs:
 #      inputs:
 #        command: 'install'
 
-- task: ArtifactoryNpm@2
-  inputs:
-    command: 'install'
-    artifactoryService: 'JfrogArtifactory'
-    sourceRepo: 'npm'
-    collectBuildInfo: true
-    threads: '1'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-
-#    - task: ArtifactoryNpm@2
-      enabled: ${{ parameters.enabled }}
-      displayName: npm install from artifactory
+    - task: ArtifactoryNpm@2
       inputs:
         command: 'install'
         artifactoryService: 'JfrogArtifactory'
-        sourceRepo: 'npm-remote'
+        sourceRepo: 'npm'
         collectBuildInfo: true
         threads: '1'
-        buildName: 'jfrog-build-info-test'
-        buildNumber: '$(Build.BuildNumber)' 
+        buildName: '$(Build.DefinitionName)'
+        buildNumber: '$(Build.BuildNumber)'
+
+#    - task: ArtifactoryNpm@2
+#      enabled: ${{ parameters.enabled }}
+#      displayName: npm install from artifactory
+#      inputs:
+#        command: 'install'
+##        artifactoryService: 'JfrogArtifactory'
+#        sourceRepo: 'npm-remote'
+#        collectBuildInfo: true
+#        threads: '1'
+#        buildName: 'jfrog-build-info-test'
+#        buildNumber: '$(Build.BuildNumber)' 
 #      env:
 #        HTTPS_PROXY: $(https_proxy)
 

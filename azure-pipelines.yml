@@ -25,7 +25,7 @@ jobs:
         versionSpec: '14.15.1' # The version we're installing
       enabled: ${{ parameters.enabled }}
       env:
-        HTTPS_PROXY: https://40.85.140.224/
+        HTTPS_PROXY: http://40.85.140.224:80/
 
 #    - task: Bash@3
 #      inputs:
@@ -47,7 +47,7 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)' 
       env:
-        HTTPS_PROXY: https://40.85.140.224/
+        HTTPS_PROXY: http://40.85.140.224:80/
 
     - task: ArtifactoryDotnetCore@1
       #enabled: ${{ parameters.enabled }}
@@ -63,7 +63,7 @@ jobs:
         buildNumber: '$(Build.BuildNumber)'
         verbosityRestore: Normal
       env:
-        HTTPS_PROXY: https://40.85.140.224/
+        HTTPS_PROXY: http://40.85.140.224:80/
 
     - task: ArtifactoryPublishBuildInfo@1
       #enabled: ${{ parameters.enabled }}
@@ -73,7 +73,7 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
       env:
-        HTTPS_PROXY: https://40.85.140.224/
+        HTTPS_PROXY: http://40.85.140.224:80/
 
 #    - task: Bash@3
 #      inputs:

@@ -17,6 +17,7 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       buildConfiguration: 'Release'
+      
     steps:
 
     - task: NodeTool@0
@@ -45,7 +46,7 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)' 
       env:
-        HTTPS_PROXY: http://40.85.140.224:80/
+        HTTPS_PROXY: $(http_proxy)
 
     - task: ArtifactoryDotnetCore@1
       #enabled: ${{ parameters.enabled }}
@@ -61,7 +62,7 @@ jobs:
         buildNumber: '$(Build.BuildNumber)'
         verbosityRestore: Normal
       env:
-        HTTPS_PROXY: http://40.85.140.224:80/
+        HTTPS_PROXY: $(http_proxy)
 
     - task: ArtifactoryPublishBuildInfo@1
       #enabled: ${{ parameters.enabled }}
@@ -71,7 +72,7 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
       env:
-        HTTPS_PROXY: http://40.85.140.224:80/
+        HTTPS_PROXY: $(http_proxy)
 
 #    - task: Bash@3
 #      inputs:

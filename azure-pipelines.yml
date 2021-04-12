@@ -25,7 +25,14 @@ jobs:
       inputs:
         versionSpec: '14.15.1' # The version we're installing
       enabled: ${{ parameters.enabled }}
-
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          echo "intalling JFROG CLI"
+          npm install -g jfrog-cli-go
+          
 #    - task: Bash@3
 #      inputs:
 #        targetType: 'inline'

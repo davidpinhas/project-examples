@@ -24,8 +24,6 @@ jobs:
       inputs:
         versionSpec: '14.15.1' # The version we're installing
       enabled: ${{ parameters.enabled }}
-      env:
-        HTTPS_PROXY: http://40.85.140.224:80/
 
 #    - task: Bash@3
 #      inputs:

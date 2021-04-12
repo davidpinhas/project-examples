@@ -30,10 +30,14 @@ jobs:
 #      inputs:
 #        targetType: 'inline'
 #        script: |          # Write your commands here
-          
           # echo 'npm packages location'
           # sudo find / -name "react"
 #          npm install react react-dom
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+
 #    - task: ArtifactoryNpm@2
 #      enabled: ${{ parameters.enabled }}
 #      displayName: npm install from artifactory

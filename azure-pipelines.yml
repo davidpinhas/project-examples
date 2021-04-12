@@ -38,15 +38,15 @@ jobs:
 #      inputs:
 #        command: 'install'
 
-    - task: ArtifactoryNpm@2
-      inputs:
-        command: 'install'
-        artifactoryService: 'JfrogArtifactory'
-        sourceRepo: 'npm'
-        collectBuildInfo: true
-        threads: '1'
-        buildName: '$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
+#    - task: ArtifactoryNpm@2
+#      inputs:
+#        command: 'install'
+#        artifactoryService: 'JfrogArtifactory'
+#        sourceRepo: 'npm'
+#        collectBuildInfo: true
+#        threads: '1'
+#        buildName: '$(Build.DefinitionName)'
+#        buildNumber: '$(Build.BuildNumber)'
 
 #    - task: ArtifactoryNpm@2
 #      enabled: ${{ parameters.enabled }}

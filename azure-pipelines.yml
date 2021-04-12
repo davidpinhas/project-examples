@@ -20,11 +20,11 @@ jobs:
       
     steps:
 
-#    - task: NodeTool@0
-#      displayName: Node install
-#      inputs:
-#        versionSpec: '14.15.1' # The version we're installing
-#      enabled: ${{ parameters.enabled }}
+    - task: NodeTool@0
+      displayName: Node install
+      inputs:
+        versionSpec: '14.15.1' # The version we're installing
+      enabled: ${{ parameters.enabled }}
 
 #    - task: Bash@3
 #      inputs:

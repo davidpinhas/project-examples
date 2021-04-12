@@ -34,9 +34,9 @@ jobs:
           # sudo find / -name "react"
 #          npm install react react-dom
 
-- task: Npm@1
-  inputs:
-    command: 'install'
+    - task: Npm@1
+      inputs:
+        command: 'install'
 
 #    - task: ArtifactoryNpm@2
 #      enabled: ${{ parameters.enabled }}

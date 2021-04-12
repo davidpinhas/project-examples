@@ -45,10 +45,15 @@ jobs:
         threads: '1'
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)' 
-      env:
-        HTTPS_PROXY: $(http_proxy)
+#      env:
+#        HTTPS_PROXY: $(http_proxy)
 
+    - task: JfrogCli@1
+      inputs:
+        artifactoryService: 'JfrogArtifactory'
+        command: 'jfrog rt dl generic-local/access.war'
     - task: ArtifactoryDotnetCore@1
+
       #enabled: ${{ parameters.enabled }}
       displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
       inputs:
@@ -61,8 +66,8 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
         verbosityRestore: Normal
-      env:
-        HTTPS_PROXY: $(http_proxy)
+#      env:
+#        HTTPS_PROXY: $(http_proxy)
 
     - task: ArtifactoryPublishBuildInfo@1
       #enabled: ${{ parameters.enabled }}
@@ -71,8 +76,8 @@ jobs:
         artifactoryService: "JfrogArtifactory"
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
-      env:
-        HTTPS_PROXY: $(http_proxy)
+#      env:
+#        HTTPS_PROXY: $(http_proxy)
 
 #    - task: Bash@3
 #      inputs:

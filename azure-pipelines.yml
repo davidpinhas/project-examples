@@ -20,11 +20,11 @@ jobs:
       
     steps:
 
-    - task: NodeTool@0
-      displayName: Node install
-      inputs:
-        versionSpec: '14.15.1' # The version we're installing
-      enabled: ${{ parameters.enabled }}
+#    - task: NodeTool@0
+#      displayName: Node install
+#      inputs:
+#        versionSpec: '14.15.1' # The version we're installing
+#      enabled: ${{ parameters.enabled }}
 
 #    - task: Bash@3
 #      inputs:
@@ -34,17 +34,17 @@ jobs:
           # echo 'npm packages location'
           # sudo find / -name "react"
 #          npm install react react-dom
-    - task: ArtifactoryNpm@2
-      enabled: ${{ parameters.enabled }}
-      displayName: npm install from artifactory
-      inputs:
-        command: 'install'
-        artifactoryService: 'JfrogArtifactory'
-        sourceRepo: 'npm-remote'
-        collectBuildInfo: true
-        threads: '1'
-        buildName: 'jfrog-build-info-test'
-        buildNumber: '$(Build.BuildNumber)' 
+#    - task: ArtifactoryNpm@2
+#      enabled: ${{ parameters.enabled }}
+#      displayName: npm install from artifactory
+#      inputs:
+#        command: 'install'
+#        artifactoryService: 'JfrogArtifactory'
+#        sourceRepo: 'npm-remote'
+#        collectBuildInfo: true
+#        threads: '1'
+#        buildName: 'jfrog-build-info-test'
+#        buildNumber: '$(Build.BuildNumber)' 
 #      env:
 #        HTTPS_PROXY: $(https_proxy)
 

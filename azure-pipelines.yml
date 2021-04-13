@@ -19,12 +19,11 @@ jobs:
       buildConfiguration: 'Release'
       
     steps:
-
-    - task: NodeTool@0
-      displayName: Node install
-      inputs:
-        versionSpec: '14.15.1' # The version we're installing
-      enabled: ${{ parameters.enabled }}
+#    - task: NodeTool@0
+#      displayName: Node install
+#      inputs:
+#        versionSpec: '14.15.1' # The version we're installing
+#      enabled: ${{ parameters.enabled }}
           
 #    - task: Bash@3
 #      inputs:
@@ -48,9 +47,9 @@ jobs:
 #        buildName: '$(Build.DefinitionName)'
 #        buildNumber: '$(Build.BuildNumber)'
 
-    - task: Npm@1
-      inputs:
-        command: 'install'
+#    - task: Npm@1
+#      inputs:
+#        command: 'install'
 
 #    - task: ArtifactoryNpm@2
 #      enabled: ${{ parameters.enabled }}
@@ -67,7 +66,6 @@ jobs:
 #        HTTPS_PROXY: $(https_proxy)
 
     - task: ArtifactoryDotnetCore@1
-
       #enabled: ${{ parameters.enabled }}
       displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
       inputs:

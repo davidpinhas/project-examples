@@ -25,13 +25,6 @@ jobs:
       inputs:
         versionSpec: '14.15.1' # The version we're installing
       enabled: ${{ parameters.enabled }}
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Write your commands here
-          echo "intalling JFROG CLI"
-          npm install -g jfrog-cli-go
           
 #    - task: Bash@3
 #      inputs:
@@ -61,7 +54,7 @@ jobs:
       inputs:
         command: 'install'
         artifactoryService: 'JfrogArtifactory'
-        sourceRepo: 'npm-remote'
+        sourceRepo: 'npm'
         collectBuildInfo: true
         threads: '1'
         buildName: 'jfrog-build-info-test'

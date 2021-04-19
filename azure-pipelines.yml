@@ -51,33 +51,33 @@ jobs:
 #      inputs:
 #        command: 'install'
 
-#    - task: ArtifactoryNpm@2
-#      enabled: ${{ parameters.enabled }}
-#      displayName: npm install from artifactory
-#      inputs:
-#        command: 'install'
-#        artifactoryService: 'JfrogArtifactory'
-#        sourceRepo: 'npm'
-#        collectBuildInfo: true
-#        threads: '1'
-#        buildName: 'jfrog-build-info-test'
-#        buildNumber: '$(Build.BuildNumber)' 
+    - task: ArtifactoryNpm@2
+      enabled: ${{ parameters.enabled }}
+      displayName: npm install from artifactory
+      inputs:
+        command: 'install'
+        artifactoryService: 'JfrogArtifactory'
+        sourceRepo: 'npm'
+        collectBuildInfo: true
+        threads: '1'
+        buildName: 'jfrog-build-info-test'
+        buildNumber: '$(Build.BuildNumber)' 
 #      env:
 #        HTTPS_PROXY: $(https_proxy)
 
-    - task: ArtifactoryDotnetCore@1
-      #enabled: ${{ parameters.enabled }}
-      displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
-      inputs:
-        artifactoryService: "JfrogArtifactory"
-        targetResolveRepo: "nuget"
-        command: restore
-        rootPath: '$(Build.SourcesDirectory)/test.csproj'
-        arguments: '-r linux-x64'
-        collectBuildInfo: true
-        buildName: 'jfrog-build-info-test'
-        buildNumber: '$(Build.BuildNumber)'
-        verbosityRestore: Normal
+#    - task: ArtifactoryDotnetCore@1
+#      #enabled: ${{ parameters.enabled }}
+#      displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
+#      inputs:
+#        artifactoryService: "JfrogArtifactory"
+#        targetResolveRepo: "nuget"
+#        command: restore
+#        rootPath: '$(Build.SourcesDirectory)/test.csproj'
+#        arguments: '-r linux-x64'
+#        collectBuildInfo: true
+#        buildName: 'jfrog-build-info-test'
+#        buildNumber: '$(Build.BuildNumber)'
+#        verbosityRestore: Normal
 #      env:
 #        HTTPS_PROXY: $(https_proxy)
 

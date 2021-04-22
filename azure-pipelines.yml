@@ -65,6 +65,16 @@ jobs:
 #      env:
 #        HTTPS_PROXY: $(https_proxy)
 
+    - task: ArtifactoryToolsInstaller@1
+      displayName: 'Install Jfrog Tools'
+      inputs:
+        artifactoryService: 'JfrogArtifactory'
+        cliInstallationRepo: 'jfrog-cli'
+      #Make sure to set the proxy in the environment. Otherwise the task will fail
+      env:
+        HTTP_PROXY: "http://40.87.149.189:80"
+
+
     - task: ArtifactoryDotnetCore@1
       #enabled: ${{ parameters.enabled }}
       displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"

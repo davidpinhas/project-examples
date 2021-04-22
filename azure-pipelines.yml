@@ -78,7 +78,7 @@ jobs:
       inputs:
         targetType: 'inline'
         script: |          
-          echo 'http_proxy=40.87.149.189 wget https://releases.jfrog.io/artifactory/jfrog-cli/v1/1.46.3/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64'
+          http_proxy=40.87.149.189 wget https://releases.jfrog.io/artifactory/jfrog-cli/v1/1.46.3/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64
           # sudo find / -name "react"
 
     - task: ArtifactoryDotnetCore@1

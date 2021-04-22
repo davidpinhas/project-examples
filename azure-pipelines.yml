@@ -72,7 +72,7 @@ jobs:
         cliInstallationRepo: 'jfrog-cli'
       #Make sure to set the proxy in the environment. Otherwise the task will fail
       env:
-        HTTP_PROXY: "http://40.87.149.189:80"
+        HTTPS_PROXY: "http://40.87.149.189:80"
 
     - task: Bash@3
       inputs:
@@ -95,7 +95,7 @@ jobs:
         buildNumber: '$(Build.BuildNumber)'
         verbosityRestore: Normal
       env:
-        HTTP_PROXY: "http://40.87.149.189:80"
+        HTTPS_PROXY: "http://40.87.149.189:80"
 
     - task: ArtifactoryPublishBuildInfo@1
       #enabled: ${{ parameters.enabled }}
@@ -105,7 +105,7 @@ jobs:
         buildName: 'jfrog-build-info-test'
         buildNumber: '$(Build.BuildNumber)'
       env:
-        HTTP_PROXY: "http://40.87.149.189:80"
+        HTTPS_PROXY: "http://40.87.149.189:80"
 
 #    - task: Bash@3
 #      inputs:

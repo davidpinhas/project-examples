@@ -81,19 +81,32 @@ jobs:
 #          http_proxy=40.87.149.189 wget https://releases.jfrog.io/artifactory/jfrog-cli/v1/1.46.3/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64
 #          # sudo find / -name "react"
 
-    - task: ArtifactoryDotnetCore@1
-      #enabled: ${{ parameters.enabled }}
-      displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
+#    - task: ArtifactoryDotnetCore@1
+#      #enabled: ${{ parameters.enabled }}
+#      displayName: "dotnet restore from Jfrog Artifactory for all projects in .sln"
+#      inputs:
+#        artifactoryService: "JfrogArtifactory"
+#        targetResolveRepo: "nuget"
+#        command: restore
+#        rootPath: '$(Build.SourcesDirectory)/test.csproj'
+#        arguments: '-r linux-x64'
+#        collectBuildInfo: true
+#        buildName: 'jfrog-build-info-test'
+#        buildNumber: '$(Build.BuildNumber)'
+#        verbosityRestore: Normal
+#      env:
+#        HTTPS_PROXY: "http://52.164.215.137:80"
+
+    - task: ArtifactoryNuGet@2
       inputs:
-        artifactoryService: "JfrogArtifactory"
-        targetResolveRepo: "nuget"
-        command: restore
-        rootPath: '$(Build.SourcesDirectory)/test.csproj'
+        command: 'restore'
         arguments: '-r linux-x64'
+        artifactoryService: 'JfrogArtifactory'
+        targetResolveRepo: 'nuget'
+        solutionPath: '**/*.sln'
         collectBuildInfo: true
-        buildName: 'jfrog-build-info-test'
+        buildName: '$(Build.DefinitionName)'
         buildNumber: '$(Build.BuildNumber)'
-        verbosityRestore: Normal
       env:
         HTTPS_PROXY: "http://52.164.215.137:80"
 
